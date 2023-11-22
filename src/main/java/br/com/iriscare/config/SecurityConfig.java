@@ -112,7 +112,8 @@ public class SecurityConfig {
                         .successHandler(oAuth2AuthenticationSuccessHandler)
                         .failureHandler(oAuth2AuthenticationFailureHandler)
         );
-        // Add our custom Token based authentication filter
+
+        // Adicione o filtro de autenticação baseado em token personalizado.
         http.addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

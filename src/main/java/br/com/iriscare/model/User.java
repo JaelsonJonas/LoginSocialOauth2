@@ -35,7 +35,6 @@ public class User {
     @JsonIgnore
     private String password;
 
-
     @NotNull
     @Enumerated(EnumType.STRING)
     private AuthProvider provider;

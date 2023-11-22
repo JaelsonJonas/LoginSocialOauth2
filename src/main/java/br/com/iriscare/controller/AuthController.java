@@ -29,7 +29,6 @@ import java.net.URI;
 @RequestMapping("/auth")
 public class AuthController {
 
-
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -47,10 +46,7 @@ public class AuthController {
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        loginRequest.email(),
-                        loginRequest.password()
-                )
+                new UsernamePasswordAuthenticationToken(loginRequest.email(), loginRequest.password())
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -64,8 +60,7 @@ public class AuthController {
         if (userRepository.existsByEmail(signUpRequest.email())) {
             throw new BadRequestException("Email address already in use.");
         }
-
-        // Creating user's account
+        // Criando a conta do usuario
         User user = new User();
         user.setName(signUpRequest.name());
         user.setEmail(signUpRequest.email());

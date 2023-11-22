@@ -13,7 +13,6 @@ import org.springframework.security.oauth2.core.oidc.IdTokenClaimNames;
 @Configuration
 public class Oauth2Config {
 
-
     @Value("${security.oauth2.client.registration.google.clientId}")
     private String googleClientId;
 
